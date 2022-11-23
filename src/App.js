@@ -8,27 +8,34 @@ class App extends Component {
     this.state = {
       name: "",
       surname: "",
+      mail: "",
+      phone: null,
     };
   }
 
-  changeNameValue = (e) => {
+  updateState = (e, key) => {
     this.setState({
-      name: e.target.value,
+      [key]: e.target.value,
     });
-  };
-
-  changeSurnameValue = (e) => {
-    this.setState({
-      surname: e.target.value,
-    });
+    console.log(this.state);
   };
 
   render() {
     return (
       <div>
         <Generic
-          changeName={this.changeNameValue}
-          changeSurname={this.changeSurnameValue}
+          changeName={(e) => {
+            this.updateState(e, "name");
+          }}
+          changeSurname={(e) => {
+            this.updateState(e, "surname");
+          }}
+          changeMail={(e) => {
+            this.updateState(e, "mail");
+          }}
+          changePhone={(e) => {
+            this.updateState(e, "phone");
+          }}
         />
       </div>
     );
