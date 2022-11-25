@@ -1,26 +1,71 @@
 import React, { Component } from "react";
 
 class Experience extends Component {
+  constructor() {
+    super();
+    this.state = {
+      company: "",
+      title: "",
+      tasks: "",
+      onboarding: "",
+      leaving: "",
+    };
+  }
+
+  updateState = (e, key) => {
+    this.setState({
+      [key]: e.target.value,
+    });
+  };
+
   render() {
-    const {
-      changeCompany,
-      changeTitle,
-      changeTasks,
-      changeOnboarding,
-      changeLeaving,
-    } = this.props;
     return (
       <div>
-        <label htmlFor="schoolName">Company Name:</label>
-        <input type="text" id="schoolName" onChange={changeCompany} />
-        <label htmlFor="facultyName">Postition title:</label>
-        <input type="text" id="facultyName" onChange={changeTitle} />
-        <label htmlFor="studyFinish">Main tasks:</label>
-        <input type="text" id="studyFinish" onChange={changeTasks} />
-        <label htmlFor="degree">Date of onboarding:</label>
-        <input type="number" id="degree" onChange={changeOnboarding} />
-        <label htmlFor="degree">Date of leaving:</label>
-        <input type="number" id="degree" onChange={changeLeaving} />
+        <label htmlFor="company">Company Name:</label>
+        <input
+          type="text"
+          id="company"
+          onChange={(e) => {
+            this.updateState(e, "company");
+          }}
+          value={this.state.company}
+        />
+        <label htmlFor="title">Postition title:</label>
+        <input
+          type="text"
+          id="title"
+          onChange={(e) => {
+            this.updateState(e, "title");
+          }}
+          value={this.state.title}
+        />
+        <label htmlFor="tasks">Main tasks:</label>
+        <input
+          type="text"
+          id="tasks"
+          onChange={(e) => {
+            this.updateState(e, "tasks");
+          }}
+          value={this.state.tasks}
+        />
+        <label htmlFor="onboarding">Date of onboarding:</label>
+        <input
+          type="number"
+          id="onboarding"
+          onChange={(e) => {
+            this.updateState(e, "onboarding");
+          }}
+          value={this.state.onboarding}
+        />
+        <label htmlFor="leaving">Date of leaving:</label>
+        <input
+          type="number"
+          id="leaving"
+          onChange={(e) => {
+            this.updateState(e, "leaving");
+          }}
+          value={this.state.leaving}
+        />
       </div>
     );
   }
