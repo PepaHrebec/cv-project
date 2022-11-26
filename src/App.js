@@ -3,6 +3,7 @@ import { Generic } from "./components/generic";
 import { Education } from "./components/education";
 import { Experience } from "./components/experience";
 import { Button } from "./components/button";
+import "./components/style.css";
 
 class App extends Component {
   constructor() {
@@ -22,8 +23,8 @@ class App extends Component {
     return (
       <div>
         <Generic />
-        <Education />
-        <Experience />
+        <Education clicked={this.state.clicked} />
+        <Experience clicked={this.state.clicked} />
         <Button clicked={this.state.clicked} clickFoo={this.clickFoo} />
       </div>
     );
