@@ -1,34 +1,18 @@
-import React, { Component } from "react";
-import { Generic } from "./components/generic";
-import { Education } from "./components/education";
-import { Experience } from "./components/experience";
-import { Button } from "./components/button";
-import "./components/style.css";
+import React, { useState } from "react";
+import { Inputs } from "./components/Inputs";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      clicked: true,
-    };
-  }
+const App = () => {
+  const [clicked, setClicked] = useState(true);
 
-  clickFoo = () => {
-    this.setState((prevState) => ({
-      clicked: !prevState.clicked,
-    }));
+  const onClick = () => {
+    setClicked(!clicked);
   };
 
-  render() {
-    return (
-      <div>
-        <Generic />
-        <Education clicked={this.state.clicked} />
-        <Experience clicked={this.state.clicked} />
-        <Button clicked={this.state.clicked} clickFoo={this.clickFoo} />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Inputs inputId="Name" type="text" />
+    </div>
+  );
+};
 
 export default App;
