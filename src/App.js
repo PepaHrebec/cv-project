@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Inputs } from "./components/Inputs";
+import { Generic } from "./components/Generic";
 
 const App = () => {
   const [clicked, setClicked] = useState(true);
@@ -10,7 +10,7 @@ const App = () => {
 
   return (
     <div>
-      <Inputs inputId="Name" type="text" />
+      <Generic />
     </div>
   );
 };
