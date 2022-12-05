@@ -8,6 +8,7 @@ const StyledInput = styled.input`
   margin-top: 4px;
   padding: 4px;
   border-radius: 2px 2px 0 0;
+  height: 1.5rem;
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
@@ -25,23 +26,35 @@ const StyledInput = styled.input`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 30%;
+  width: clamp(20rem, 50vw, 40rem);
 `;
 
 const StyledLabel = styled.label`
   margin-left: 4px;
 `;
 
+const StyledDiv = styled.div`
+  border-bottom: 2px solid black;
+  background-color: white;
+  margin-top: 4px;
+  padding: 4px;
+  height: 1.5rem;
+`;
+
 const Inputs = (props) => {
   return (
     <Wrapper>
       <StyledLabel htmlFor={props.inputId}>{props.inputId}</StyledLabel>
-      <StyledInput
-        id={props.inputId}
-        type={props.type}
-        onChange={props.change}
-        value={props.valueInput}
-      />
+      {props.clicked ? (
+        <StyledInput
+          id={props.inputId}
+          type={props.type}
+          onChange={props.change}
+          value={props.valueInput}
+        />
+      ) : (
+        <StyledDiv>{props.valueInput}</StyledDiv>
+      )}
     </Wrapper>
   );
 };

@@ -6,13 +6,16 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  border: 2px dotted black;
+  padding: 2rem;
+  border-radius: 4px;
 `;
 
-const Education = () => {
+const Education = (props) => {
   const [eduVals, setEduVals] = useState({
-    school: "",
-    title: "",
-    date: "",
+    school: " ",
+    title: " ",
+    date: " ",
   });
 
   const handleclick = (e, name) => {
@@ -31,6 +34,7 @@ const Education = () => {
           handleclick(e, "school");
         }}
         valueInput={eduVals.school}
+        clicked={props.clicked}
       />{" "}
       <Inputs
         inputId="Title obtained"
@@ -39,6 +43,7 @@ const Education = () => {
           handleclick(e, "title");
         }}
         valueInput={eduVals.title}
+        clicked={props.clicked}
       />
       <Inputs
         inputId="End of study"
@@ -47,6 +52,7 @@ const Education = () => {
           handleclick(e, "date");
         }}
         valueInput={eduVals.date}
+        clicked={props.clicked}
       />
     </SectionWrapper>
   );

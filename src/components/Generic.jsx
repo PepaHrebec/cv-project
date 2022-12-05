@@ -6,20 +6,17 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-`;
-
-const StyledButton = styled.button`
-  width: 100px;
-  border-radius: 8px;
-  padding: 8px;
+  border: 2px dotted black;
+  padding: 2rem;
+  border-radius: 4px;
 `;
 
 const Generic = (props) => {
   const [genericVals, setGenericVals] = useState({
-    name: "",
-    surname: "",
-    phone: "",
-    email: "",
+    name: " ",
+    surname: " ",
+    phone: " ",
+    email: " ",
   });
 
   const handleclick = (e, name) => {
@@ -38,6 +35,7 @@ const Generic = (props) => {
           handleclick(e, "name");
         }}
         valueInput={genericVals.name}
+        clicked={props.clicked}
       />
       <Inputs
         inputId="Surname"
@@ -46,6 +44,7 @@ const Generic = (props) => {
           handleclick(e, "surname");
         }}
         valueInput={genericVals.surname}
+        clicked={props.clicked}
       />
       <Inputs
         inputId="Phone"
@@ -54,6 +53,7 @@ const Generic = (props) => {
           handleclick(e, "phone");
         }}
         valueInput={genericVals.phone}
+        clicked={props.clicked}
       />
       <Inputs
         inputId="Email"
@@ -62,6 +62,7 @@ const Generic = (props) => {
           handleclick(e, "email");
         }}
         valueInput={genericVals.email}
+        clicked={props.clicked}
       />
     </SectionWrapper>
   );

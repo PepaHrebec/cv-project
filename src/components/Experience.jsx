@@ -6,15 +6,18 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  border: 2px dotted black;
+  padding: 2rem;
+  border-radius: 4px;
 `;
 
-const Experience = () => {
+const Experience = (props) => {
   const [expVals, setExpVals] = useState({
-    company: "",
-    title: "",
-    main_tasks: "",
-    hire: "",
-    left: "",
+    company: " ",
+    title: " ",
+    main_tasks: " ",
+    hire: " ",
+    left: " ",
   });
 
   const handleclick = (e, name) => {
@@ -32,6 +35,7 @@ const Experience = () => {
           handleclick(e, "company");
         }}
         valueInput={expVals.company}
+        clicked={props.clicked}
       />
       <Inputs
         inputId="Title"
@@ -40,6 +44,7 @@ const Experience = () => {
           handleclick(e, "title");
         }}
         valueInput={expVals.title}
+        clicked={props.clicked}
       />
       <Inputs
         inputId="Tasks"
@@ -48,6 +53,7 @@ const Experience = () => {
           handleclick(e, "main_tasks");
         }}
         valueInput={expVals.main_tasks}
+        clicked={props.clicked}
       />
       <Inputs
         inputId="Date of hire"
@@ -56,6 +62,7 @@ const Experience = () => {
           handleclick(e, "hire");
         }}
         valueInput={expVals.hire}
+        clicked={props.clicked}
       />
       <Inputs
         inputId="Date of leaving"
@@ -64,6 +71,7 @@ const Experience = () => {
           handleclick(e, "left");
         }}
         valueInput={expVals.left}
+        clicked={props.clicked}
       />
     </SectionWrapper>
   );
