@@ -8,7 +8,13 @@ const SectionWrapper = styled.div`
   gap: 20px;
 `;
 
-const Generic = () => {
+const StyledButton = styled.button`
+  width: 100px;
+  border-radius: 8px;
+  padding: 8px;
+`;
+
+const Generic = (props) => {
   const [genericVals, setGenericVals] = useState({
     name: "",
     surname: "",
@@ -31,6 +37,7 @@ const Generic = () => {
         change={(e) => {
           handleclick(e, "name");
         }}
+        valueInput={genericVals.name}
       />
       <Inputs
         inputId="Surname"
@@ -38,6 +45,7 @@ const Generic = () => {
         change={(e) => {
           handleclick(e, "surname");
         }}
+        valueInput={genericVals.surname}
       />
       <Inputs
         inputId="Phone"
@@ -45,6 +53,7 @@ const Generic = () => {
         change={(e) => {
           handleclick(e, "phone");
         }}
+        valueInput={genericVals.phone}
       />
       <Inputs
         inputId="Email"
@@ -52,14 +61,8 @@ const Generic = () => {
         change={(e) => {
           handleclick(e, "email");
         }}
+        valueInput={genericVals.email}
       />
-      <button
-        onClick={() => {
-          console.log(genericVals);
-        }}
-      >
-        Click me
-      </button>
     </SectionWrapper>
   );
 };
